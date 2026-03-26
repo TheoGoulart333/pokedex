@@ -1,4 +1,4 @@
-# 🐍 Pokédex em Python
+# Pokédex em Python
 
 Uma **Pokédex desenvolvida inteiramente em Python**, executada via terminal.
 O projeto simula um sistema simples de cadastro e consulta de Pokémon, permitindo armazenar e visualizar informações como **tipo, HP e região**.
@@ -7,16 +7,16 @@ Este projeto foi criado com o objetivo de **praticar lógica de programação e 
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
-* ➕ Adicionar novos Pokémon
-* 🔍 Buscar Pokémon pelo nome
-* 📋 Listar todos os Pokémon cadastrados
-* ❌ Sair do programa
+* Adicionar novos Pokémon
+* Buscar Pokémon pelo nome
+* Listar todos os Pokémon cadastrados
+* Sair do programa
 
 ---
 
-## 📚 Conceitos de programação utilizados
+## Conceitos de programação utilizados
 
 * Dicionários em Python
 * Estruturas condicionais (`if`, `elif`, `else`)
@@ -26,7 +26,7 @@ Este projeto foi criado com o objetivo de **praticar lógica de programação e 
 
 ---
 
-## 🖥️ Exemplo de execução
+## Exemplo de execução
 
 Menu do programa:
 
@@ -48,21 +48,21 @@ Região: Kalos
 
 ---
 
-## ⚙️ Como executar o projeto
+## Como executar o projeto
 
-### 1️⃣ Clonar o repositório
+### Clonar o repositório
 
 ```
 git clone https://github.com/seu-usuario/pokedex-python.git
 ```
 
-### 2️⃣ Entrar na pasta do projeto
+### Entrar na pasta do projeto
 
 ```
 cd pokedex-python
 ```
 
-### 3️⃣ Executar o programa
+### Executar o programa
 
 ```
 python pokedex.py
@@ -70,29 +70,29 @@ python pokedex.py
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## Tecnologias utilizadas
 
 * **Python 3**
 
 ---
 
-## 📌 Possíveis melhorias futuras
+## Possíveis melhorias futuras
 
-* 💾 Salvar Pokémon em arquivo `.json`
-* 🎨 Criar interface gráfica
-* 🌐 Conectar com uma API de Pokémon
-* 🔎 Buscar Pokémon por tipo
-* 📊 Melhorar organização do código
+* Salvar Pokémon em arquivo `.json`
+* Criar interface gráfica
+* Conectar com uma API de Pokémon
+* Buscar Pokémon por tipo
+* Melhorar organização do código
 
 ---
 
-## 👨‍💻 Autor
+## 👨‍💻Autor
 
 Projeto desenvolvido por **Theo Vasconcelos** para fins de estudo em **Python e lógica de programação**.
 
 ---
 
-⭐ Se você gostou do projeto, considere dar uma estrela no repositório.
+Se você gostou do projeto, considere dar uma estrela no repositório.
 
 
 
