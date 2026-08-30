@@ -8,7 +8,6 @@ SAVE_FILE = "pokedex_save.json"
 
 DEFAULT_POKEDEX = {
     "Delphox": {"type": "Fire/Psychic", "hp": 75, "region": "Kalos"},
-    "Greninja": {"type": "Water/Dark", "hp": 72, "region": "Kalos"},
 }
 
 # ==================== PERSISTÊNCIA ====================
