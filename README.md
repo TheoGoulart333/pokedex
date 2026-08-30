@@ -105,3 +105,5 @@ pokedex/
 Desenvolvido por **Theo Vasconcelos** para fins de estudo em Python e lógica de programação.
 
 Se você gostou do projeto, considere deixar uma estrela no repositório.
+
+# Pokédex
