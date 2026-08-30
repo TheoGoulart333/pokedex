@@ -108,3 +108,4 @@ Se você gostou do projeto, considere deixar uma estrela no repositório.
 
 # Pokédex
  
+ 
