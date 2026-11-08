@@ -112,8 +112,17 @@ def health() -> dict[str, str]:
 @app.get("/api/pokemon")
 async def pokemon_list(
     search: str = Query("", max_length=40),
-    limit: int = Query(24, ge=1, le=60),
+    type: str = Query("", max_length=20),
+    limit: int = Query(1025, ge=1, le=1025),
 ) -> dict[str, Any]:
+    if type.strip():
+        async with httpx.AsyncClient(timeout=12) as client:
+            response = await client.get(f"{POKEAPI}/type/{type.lower()}")
+        if response.status_code == 404:
+            raise HTTPException(status_code=404, detail="Tipo não encontrado")
+        response.raise_for_status()
+        names = [entry["pokemon"]["name"] for entry in response.json()["pokemon"]][:limit]
+        return {"items": [await get_pokemon(name) for name in names], "count": len(names)}
     if search.strip():
         async with httpx.AsyncClient(timeout=12) as client:
             response = await client.get(f"{POKEAPI}/pokemon", params={"limit": 1025})
@@ -124,14 +133,19 @@ async def pokemon_list(
         items = [await get_pokemon(item["name"]) for item in results]
         return {"items": items, "count": len(items)}
 
-    with db() as connection:
-        cached = connection.execute(
-            "SELECT payload FROM pokemon_cache ORDER BY id LIMIT ?", (limit,)
-        ).fetchall()
-    if len(cached) < limit:
-        items = [await get_pokemon(str(index)) for index in range(1, limit + 1)]
-    else:
-        items = [json.loads(row["payload"]) for row in cached]
+    async with httpx.AsyncClient(timeout=12) as client:
+        response = await client.get(f"{POKEAPI}/pokemon", params={"limit": limit})
+    response.raise_for_status()
+    items = []
+    for index, item in enumerate(response.json()["results"], start=1):
+        items.append({
+            "id": index,
+            "name": item["name"],
+            "types": [],
+            "stats": {},
+            "sprite": f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{index}.png",
+            "shiny_sprite": f"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/{index}.png",
+        })
     return {"items": items, "count": len(items)}
 
 

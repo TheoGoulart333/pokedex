@@ -1,4 +1,5 @@
 const game={player:null,wild:null,playerHp:100,wildHp:100};
+document.addEventListener('click',e=>{const type=e.target.closest('[data-type]');if(type){document.querySelector('#search').value='';loadCatalog('',type.dataset.type)}});
 const gameApi=id=>fetch(`/api/pokemon/${id}`).then(r=>r.json());
 function gameMessage(text){const el=document.querySelector('#battle-message');if(el)el.textContent=text}
 function hpBars(){document.querySelector('#player-hp').style.width=`${Math.max(0,game.playerHp)}%`;document.querySelector('#wild-hp').style.width=`${Math.max(0,game.wildHp)}%`}
