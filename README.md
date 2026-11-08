@@ -27,6 +27,18 @@ Projeto criado para praticar lógica de programação, consumo de APIs REST e es
 - Remover Pokémon da lista local
 - Persistência automática em `pokedex_save.json`
 
+## Pokédex 3.0
+
+A versão web agora tem um backend próprio em FastAPI, banco SQLite local e uma camada de cache para a PokéAPI. A interface permite pesquisar Pokémon, abrir detalhes, salvar favoritos e montar um time de até seis integrantes.
+
+### Stack
+
+- Python 3.11+
+- FastAPI + Uvicorn
+- SQLite
+- HTTPX para integração com a PokéAPI
+- HTML, CSS e JavaScript sem dependência de build no frontend
+
 ## Como executar
 
 ### 1. Clonar o repositório
@@ -39,14 +51,30 @@ cd pokedex
 ### 2. Instalar as dependências
 
 ```bash
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
 ### 3. Rodar o programa
 
 ```bash
-python pokedex.py
+uvicorn server:app --reload
 ```
+
+Depois, abra http://127.0.0.1:8000.
+
+### API
+
+| Rota | Uso |
+| --- | --- |
+| `GET /api/health` | Verifica se a API está online |
+| `GET /api/pokemon?search=pika` | Pesquisa Pokémon |
+| `GET /api/pokemon/{id-ou-nome}` | Detalhes e estatísticas |
+| `GET/POST/DELETE /api/favorites` | Gerencia favoritos |
+| `GET/POST/DELETE /api/team` | Gerencia o time pessoal |
+
+O arquivo `pokedex.db` é criado automaticamente na primeira execução e não precisa ser versionado.
 
 ## Exemplo de uso
 
